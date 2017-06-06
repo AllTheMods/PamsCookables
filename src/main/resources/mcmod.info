@@ -1,0 +1,16 @@
+[
+{
+  "modid": "pamscookables",
+  "name": "Pam's Cookables",
+  "description": "Changes the recipes from Pam's Harvestcraft back to cooking",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["BloodWorkXGaming"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
