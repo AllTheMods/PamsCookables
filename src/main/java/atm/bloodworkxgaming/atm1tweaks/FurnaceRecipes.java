@@ -28,7 +28,7 @@ public class FurnaceRecipes {
             GameRegistry.addSmelting(new ItemStack(Blocks.RED_MUSHROOM), new ItemStack(Item.getByNameOrId("harvestcraft:grilledmushroomitem")), 1F);
             GameRegistry.addSmelting(new ItemStack(Item.getByNameOrId("harvestcraft:whitemushroomitem")), new ItemStack(Item.getByNameOrId("harvestcraft:grilledmushroomitem")), 1F);
             GameRegistry.addSmelting(new ItemStack(Item.getByNameOrId("harvestcraft:asparagusitem")), new ItemStack(Item.getByNameOrId("harvestcraft:grilledasparagusitem")), 1F);
-            if (Loader.isModLoaded("actuallyadditions")){
+            if (Loader.isModLoaded("actuallyadditions") && Item.getByNameOrId("actuallyadditions:itemFood") != null){
                 GameRegistry.addSmelting(new ItemStack(Item.getByNameOrId("actuallyadditions:itemFood"), 1, 16), new ItemStack(Item.getByNameOrId("harvestcraft:ricecakeitem")), 1F);
             }
             GameRegistry.addSmelting(new ItemStack(Item.getByNameOrId("harvestcraft:riceitem")), new ItemStack(Item.getByNameOrId("harvestcraft:ricecakeitem")), 1F);
@@ -41,46 +41,6 @@ public class FurnaceRecipes {
             GameRegistry.addSmelting(new ItemStack(Item.getByNameOrId("harvestcraft:vanillabeanitem")), new ItemStack(Item.getByNameOrId("harvestcraft:vanillaitem")), 1F);
             GameRegistry.addSmelting(new ItemStack(Item.getByNameOrId("harvestcraft:chestnutitem")), new ItemStack(Item.getByNameOrId("harvestcraft:roastedchestnutitem")), 1F);
             GameRegistry.addSmelting(new ItemStack(Item.getByNameOrId("harvestcraft:sesameseedsitem")), new ItemStack(Item.getByNameOrId("harvestcraft:toastedsesameseedsitem")), 1F);
-        }
-    }
-
-    static void initRemoveRecipes() {
-        if (Loader.isModLoaded("harvestcraft")) {
-
-            String[] removal = {
-                    "minecraft:bread",
-                    "harvestcraft:toastitem",
-                    "harvestcraft:roastedpumpkinseedsitem",
-                    "harvestcraft:grilledmushroomitem",
-                    "harvestcraft:grilledasparagusitem",
-                    "harvestcraft:ricecakeitem",
-                    "harvestcraft:popcornitem",
-                    "harvestcraft:bakedsweetpotatoitem",
-                    "harvestcraft:grilledeggplantitem",
-                    "harvestcraft:raisinsitem",
-                    "harvestcraft:toastedcoconutitem",
-                    "harvestcraft:vanillaitem",
-                    "harvestcraft:roastedchestnutitem",
-                    "harvestcraft:toastedsesameseedsitem"
-            };
-
-            // removal of the other recipes
-            List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
-
-            for (int i = recipes.size() - 1; i >= 0; i--) {
-
-                IRecipe recipe = recipes.get(i);
-                ItemStack out = recipe.getRecipeOutput();
-
-                if (out != null && recipe.getRecipeSize() == 2){
-                    for (String s : removal) {
-                        if (s.equals(recipe.getRecipeOutput().getItem().getRegistryName().toString())){
-                            recipes.remove(i);
-
-                        }
-                    }
-                }
-            }
         }
     }
 }
